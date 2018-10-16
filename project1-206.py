@@ -5,12 +5,31 @@ from datetime import date
 
 
 def getData(file):
+	inFile = open(file, "r")
+	line = inFile.readline()
+	dictList = []
+	while line:
+		thisDict = {}
+		values = line.split(",")
+		first = values[0]
+		last = values[1]
+		email = values[2]
+		year = values[3]
+		dob = values[4]
+		thisDict["First"] = first
+		thisDict["Last"] = last
+		thisDict["Email"] = email
+		thisDict["Class"] = year
+		thisDict["DOB"] = dob
+		dictList.append(thisDict)
+		line = inFile.readline()
+	inFile.close()
+	del dictList[0] # Deletes the first element, which was just the column headers
+	return dictList
 # get a list of dictionary objects from the file
 #Input: file name
 #Ouput: return a list of dictionary objects where
 #the keys are from the first row in the data. and the values are each of the other rows
-
-	pass
 
 def mySort(data,col):
 # Sort based on key/column
