@@ -3,7 +3,6 @@ import filecmp
 from dateutil.relativedelta import *
 from datetime import date, timedelta
 
-
 def getData(file):
 	inFile = open(file, "r")
 	line = inFile.readline()
@@ -103,7 +102,7 @@ def findMonth(a):
 			num_12 += 1
 	new_l = [(1,num_1),(2,num_2),(3,num_3),(4,num_4),(5,num_5),(6,num_6),(7,num_7),(8,num_8),(9,num_9),(10,num_10),(11,num_11),(12,num_12)]
 	new_l_2 = (sorted(new_l, key=lambda k: k[1], reverse = True)[0]) #sort the list by values
-	return new_l_2[0] #return the month for the highest value tuple
+	return new_l_2[0] #return the month for the highest value tuple ^QUESTION Why does the testcase still check if it returns 3, when the data still has 2 3 and 9 at the same frequency
 # Find the most common birth month from this data
 # Input: list of dictionaries
 # Output: Return the month (1-12) that had the most births in the data
@@ -128,7 +127,7 @@ def findAge(a):
 	for y in newList:
 		ageList.append(date.today() - date(int(y[2]), int(y[0]), int(y[1]))) #subtracts birth date from today's date
 	for z in ageList:
-		finalList.append(z / timedelta(days = 365))
+		finalList.append(z / timedelta(days = 365.2422)) #^QUESTION: Test says the output should be 40 but its 41, is this because I'm assuming today's date and the test case isnt?
 	for a in finalList:
 		counter += a #adds the ages (in floats of years) together
 	counter = counter / len(finalList) #divides that number by the number of elements (people)
