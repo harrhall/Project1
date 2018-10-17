@@ -53,7 +53,6 @@ def classSizes(data):
 			num_fr += 1
 	l = [("Senior",num_sr), ("Junior",num_jr), ("Sophomore",num_so), ("Freshman",num_fr)]
 	return sorted(l, key=lambda k: k[1], reverse = True)
-
 # Create a histogram
 # Input: list of dictionaries
 # Output: Return a list of tuples sorted by the number of students in that class in
@@ -102,7 +101,7 @@ def findMonth(a):
 			num_12 += 1
 	new_l = [(1,num_1),(2,num_2),(3,num_3),(4,num_4),(5,num_5),(6,num_6),(7,num_7),(8,num_8),(9,num_9),(10,num_10),(11,num_11),(12,num_12)]
 	new_l_2 = (sorted(new_l, key=lambda k: k[1], reverse = True)[0]) #sort the list by values
-	return new_l_2[0] #return the month for the highest value tuple ^QUESTION Why does the testcase still check if it returns 3, when the data still has 2 3 and 9 at the same frequency
+	return new_l_2[0] #return the month for the highest value tuple 
 # Find the most common birth month from this data
 # Input: list of dictionaries
 # Output: Return the month (1-12) that had the most births in the data
@@ -155,7 +154,7 @@ def main():
 	total = 0
 	print("Read in Test data and store as a list of dictionaries")
 	data = getData('P1DataA.csv')
-	data2 = getData('P1DataB.csv')
+	data2 = getData('P1DataB2.csv') #I modified this line to take the updated data set
 	total += test(type(data),type([]),50)
 
 	print()
