@@ -1,7 +1,7 @@
 import os
 import filecmp
 from dateutil.relativedelta import *
-from datetime import date
+from datetime import date, timedelta
 
 
 def getData(file):
@@ -112,7 +112,7 @@ def mySortPrint(a,col,fileName):
 	x = open(fileName, 'w')
 	sortedList = sorted(a, key=lambda k: k[col])
 	for i in sortedList:
-		x.write(str(i["First"] + " " + i["Last"] + " " + i["Email"] + "\n"))
+		x.write(str(i["First"]) + "," + str(i["Last"]) + "," + str(i["Email"]) + "\n")
 	x.close()
 
 def findAge(a):
